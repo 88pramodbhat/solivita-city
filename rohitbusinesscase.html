@@ -14,6 +14,7 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            min-height: 100vh;
         }
         .heading-container {
             text-align: center;
@@ -23,7 +24,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 80%;
             max-width: 600px;
-            margin-bottom: 20px;
+            margin: 20px auto;
         }
         h2 {
             margin: 20px 0;
@@ -41,8 +42,16 @@
             margin: 10px auto 0;
         }
         .section-container {
-            margin-bottom: 20px;
-            text-align: left;
+            width: 80%;
+            max-width: 600px;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+        }
+        .section-container h2 {
+            font-size: 1.5rem;
         }
         .algorithm {
             font-weight: bold;
@@ -52,87 +61,99 @@
             color: #007BFF;
             text-decoration: none;
         }
+        a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .heading-container, .section-container {
+                width: 90%;
+                padding: 15px;
+            }
+            h2 {
+                font-size: 1.6rem;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="heading-container">
-        <h2>Information Technology and Smart City Solutions</h2>
+        <h2>1).Information Technology and Smart City Solutions</h2>
     </div>
     <div class="section-container">
         <section>
-            <h2>Prioritizing Tasks in IT Systems</h2>
+            <h2>i).Prioritizing Tasks in IT Systems</h2>
             <p>
                 <span class="algorithm">Algorithm:</span> Heap Sort<br>
                 <span class="algorithm">Use Case:</span> Prioritize tasks in a smart city IT management system.<br>
-                <a href="https://github.com/88pramodbhat/solivita-city/blob/main/Heapsort.cpp">Heapsort Code</a>
+                <a href="https://github.com/88pramodbhat/solivita-city/blob/main/Heapsort.cpp" target="_blank">Heapsort Code</a>
             </p>
         </section>
         <section>
-            <h2>Smart Traffic Management</h2>
+            <h2>ii).Smart Traffic Management</h2>
             <p>
                 <span class="algorithm">Algorithm:</span> Shortest Path Algorithms (Dijkstra’s Algorithm)<br>
                 <span class="algorithm">Use Case:</span> Optimize vehicle routing to minimize congestion and travel time.<br>
-                <a href="https://github.com/88pramodbhat/solivita-city/blob/main/dijk.cpp">Dijkstra Code</a>
+                <a href="https://github.com/88pramodbhat/solivita-city/blob/main/dijk.cpp" target="_blank">Dijkstra Code</a>
             </p>
         </section>
         <section>
-            <h2>Telecommunications Network Optimization</h2>
+            <h2>iii).Telecommunications Network Optimization</h2>
             <p>
                 <span class="algorithm">Algorithm:</span> Minimum Spanning Tree (Kruskal’s Algorithm)<br>
                 <span class="algorithm">Use Case:</span> Design cost-effective fiber-optic or wireless communication networks.<br>
-                <a href="https://github.com/88pramodbhat/solivita-city/blob/main/krushkal.cpp">Kruskal's Code</a>
+                <a href="https://github.com/88pramodbhat/solivita-city/blob/main/krushkal.cpp" target="_blank">Kruskal's Code</a>
             </p>
         </section>
     </div>
 
     <div class="heading-container">
-        <h2>Healthcare and Wellness</h2>
+        <h2>2).Healthcare and Wellness</h2>
     </div>
     <div class="section-container">
         <section>
-            <h2>Infectious Disease Spread Simulation</h2>
+            <h2>i).Infectious Disease Spread Simulation</h2>
             <p>
                 <span class="algorithm">Algorithm:</span> Breadth-First Search (BFS)<br>
                 <span class="algorithm">Use Case:</span> Simulate the spread of diseases and identify areas at risk.<br>
-                <a href="https://github.com/88pramodbhat/solivita-city/blob/main/bfs.cpp">BFS Code</a>
+                <a href="https://github.com/88pramodbhat/solivita-city/blob/main/bfs.cpp" target="_blank">BFS</a>
             </p>
         </section>
         <section>
-            <h2>Emergency Response Optimization</h2>
+            <h2>ii).Emergency Response Optimization</h2>
             <p>
                 <span class="algorithm">Algorithm:</span> Shortest Path Algorithms (Dijkstra’s Algorithm)<br>
                 <span class="algorithm">Use Case:</span> Optimize ambulance routes to minimize response times.<br>
-                <a href="https://github.com/88pramodbhat/solivita-city/blob/main/dijk.cpp">Dijkstra Code</a>
+                <a href="https://github.com/88pramodbhat/solivita-city/blob/main/dijk.cpp" target="_blank">Dijkstra Code</a>
             </p>
         </section>
         <section>
-            <h2>Patient Prioritization</h2>
+            <h2>iii).Patient Prioritization</h2>
             <p>
                 <span class="algorithm">Algorithm:</span> Heap Sort<br>
                 <span class="algorithm">Use Case:</span> Rank patients by urgency based on health conditions.<br>
-                <a href="https://github.com/88pramodbhat/solivita-city/blob/main/Heapsort.cpp">Heap Sort</a>
+                <a href="https://github.com/88pramodbhat/solivita-city/blob/main/Heapsort.cpp" target="_blank">Heap Sort</a>
             </p>
         </section>
     </div>
 
     <div class="heading-container">
-        <h2>Education and Research</h2>
+        <h2>3).Education and Research</h2>
     </div>
     <div class="section-container">
         <section>
-            <h2>Course and Resource Prioritization</h2>
+            <h2>i).Course and Resource Prioritization</h2>
             <p>
                 <span class="algorithm">Algorithm:</span> Quick Sort<br>
                 <span class="algorithm">Use Case:</span> Prioritize courses or learning materials based on popularity, relevance, or difficulty level.<br>
-                <a href="https://github.com/88pramodbhat/solivita-city/blob/main/quick.cpp">Quick Sort</a>
+                <a href="https://github.com/88pramodbhat/solivita-city/blob/main/quick.cpp" target="_blank">Quick Sort</a>
             </p>
         </section>
         <section>
-            <h2>Path Optimization in Campus Navigation</h2>
+            <h2>ii).Path Optimization in Campus Navigation</h2>
             <p>
                 <span class="algorithm">Algorithm:</span> Dijkstra’s Algorithm<br>
                 <span class="algorithm">Use Case:</span> Optimize student and faculty movement between classrooms, labs, and other facilities.<br>
-                <a href="https://github.com/88pramodbhat/solivita-city/blob/main/dijk.cpp">Dijkstra Code</a>
+                <a href="https://github.com/88pramodbhat/solivita-city/blob/main/dijk.cpp" target="_blank">Dijkstra Code</a>
             </p>
         </section>
     </div>
