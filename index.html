@@ -5,33 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Algorithm Course Project</title>
     <style>
-       
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+            font-family: 'Arial', sans-serif;
             margin: 0;
-            background-size: cover; /* Make the image cover the whole page */
-            background-position: center; /* Center the background image */
-           
+            background: linear-gradient(to bottom, #f3e5f5, #e1bee7);
+            color: #333;
+            overflow-x: hidden;
         }
 
-        /* First Page Styling */
+        /* Hero Section */
         .hero {
-            height: 35vh; /* 35% of the viewport height */
-            background: linear-gradient(135deg, #e91e63, #9c27b0);
-            color: #fff;
+            height: 40vh;
+            background: linear-gradient(135deg, #673ab7, #e91e63);
+            color: white;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            position: relative;
-            z-index: 1; /* Ensure the text and links are above the image */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
         .hero h1 {
-            font-size: 3em;
+            font-size: 3.5em;
             margin: 0;
+            animation: fadeInDown 1s ease-in-out;
         }
 
         .hero nav {
@@ -39,35 +37,51 @@
         }
 
         .hero nav a {
-            color: #fff;
+            color: white;
             text-decoration: none;
             margin: 0 15px;
             font-weight: bold;
             font-size: 1.2em;
+            transition: color 0.3s ease;
         }
 
         .hero nav a:hover {
+            color: #ffeb3b;
             text-decoration: underline;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Section Styling */
         .section {
-            max-width: 800px;
-            margin: 20px auto;
-            background: #fff;
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
             border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             padding: 20px;
+            animation: fadeInUp 1s ease-in-out;
         }
 
         .section h2 {
-            color: #e91e63;
-            font-size: 1.8em;
-            margin-bottom: 10px;
+            color: #673ab7;
+            font-size: 2em;
+            margin-bottom: 15px;
         }
 
         .section p, .section ul {
-            color: #333;
+            line-height: 1.8;
+            color: #555;
         }
 
         ul {
@@ -75,15 +89,39 @@
             margin-left: 20px;
         }
 
-        /* Spacing between sections */
-        .section + .section {
-            margin-top: 40px;
+        /* Button Styling */
+        .button {
+            display: inline-block;
+            background: #e91e63;
+            color: white;
+            padding: 10px 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .hero nav a {
+                font-size: 1em;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Hero Section (First Page) -->
+    <!-- Hero Section -->
     <div class="hero">
         <h1>Algorithm Course Project</h1>
         <nav>
@@ -94,29 +132,31 @@
         </nav>
     </div>
 
-<h1>INTRODUCTION TO COURSE</h1>
+    <!-- Introduction Section -->
+    <div class="section">
+        <h2>Introduction to Course</h2>
+        <p>
+            This course focuses on the design and analysis of algorithms and their real-world applications. 
+            It bridges theoretical knowledge with practical implementation, enabling students to write, 
+            implement, and optimize algorithms using suitable data structures.
+        </p>
+        <ul>
+            <li>Linear and Non-linear Data Structures</li>
+            <li>Sorting and Searching Algorithms</li>
+            <li>Graph Traversal Techniques</li>
+            <li>Real-time Applications in Navigation, Finance, and Networking</li>
+        </ul>
+        <a class="button" href="#">Learn More</a>
+    </div>
 
-    <p>INTRODUCTION:
-
-1)This course is about the design and analysis of algorithms. and understanding their real world applications.the objective of this course is to develop the capability of writting the algorithms for the given tasks,implement it using the suitable data structures.and work towards improving it's efficiency.this course is important as it bridge theoratical knowledge and practical applications. 2)in this course we have studied various data structures of type linear and non linear and also some advanced data structures which include: a)arrays(1 dimensional and 2 dimensional) b)linked list (SLL and CSLL,DLL,CDLL) c)stacks and queues d)trees(n-array tree,binary,BST,2-3 tree,AVL,red-black) e)tries f)skip list g)segment trees f)fenwick trees g)graphs(weighted,unweighted,directed,undirected) h)heaps i)hashmap j)union find Algorithms tht we studied are: a)sorting algorithms(bubble,insertion,selection,merge,quick,heap sorts) b)string matching algorithms(brute force,boyer moore,KMP,Rabin-karph) c)graph traversal algorithms like BFS,DFS,kruskal's,dijkstra,bellman-ford,warshall's. d)back tracking algorithms(N queen,subset)
-
-By using efficient data structures and algorithms, one can solve problems in the least possible time. For example, sorting algorithms are used in e-commerce platforms for ranking products, while searching algorithms are vital in databases and web search engines and recommendation engines. Algorithms are used to process large datasets, such as in social networks for friend recommendations ( using graph traversal algorithms) or in finance for detecting fraud in transaction patterns .
-
-In real-time navigation systems, algorithms like Dijkstra's algorithm or A search* are used to calculate the shortest path in real-time, helping users navigate efficiently through traffic or find optimal routes.
-
-Network routing protocols, like Bellman-Ford and Floyd-Warshall, ensure the optimal path for data transmission across various routers and devices.
-
-In domains like finance or stock trading, algorithms help in analyzing and processing data streams in real time, such as for predictive analytics and anomaly detection. Efficient data structures like heaps are used in priority queues for scheduling tasks in operating systems or event-driven systems. COURSE PROJECT INTRODUCTION:
-
-We are embarking on an ambitious project to design and develop a smart city spanning 1500 square kilometers of city solivita . This project aims to create a sustainable, technologically advanced, and citizen-centric urban environment. By leveraging cutting-edge technologies and innovative solutions, we aim to improve the quality of life for residents, boost economic growth, and create a model for sustainable urban development.</p>
-
-
-
-
-
-
-
-    
-
+    <!-- Project Section -->
+    <div class="section">
+        <h2>Course Project Introduction</h2>
+        <p>
+            Our ambitious project aims to design and develop a smart city spanning 1500 square kilometers of city Solivita. 
+            By leveraging cutting-edge technologies, we strive to create a sustainable and citizen-centric urban environment.
+        </p>
+        <a class="button" href="#">Explore Project</a>
+    </div>
 </body>
 </html>
