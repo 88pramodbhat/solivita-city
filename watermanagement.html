@@ -5,29 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Water Management Table</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f9;
+            color: #333;
+        }
         table {
-            width: 60%;
+            width: 80%;
             border-collapse: collapse;
             margin: 20px auto;
-            font-family: Arial, sans-serif;
-            font-size: 16px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
         }
         th, td {
             border: 1px solid #ddd;
-            padding: 8px;
+            padding: 12px;
             text-align: center;
         }
         th {
-            background-color: #f2f2f2;
+            background: linear-gradient(45deg, #6ab7ff, #4fc3f7);
+            color: white;
             font-weight: bold;
         }
         tr:hover {
-            background-color: #f9f9f9;
+            background-color: #f1f8ff;
+            cursor: pointer;
         }
         caption {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin: 15px 0;
+            color: #444;
+        }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 20px;
+            flex-wrap: wrap; /* Make it responsive */
+        }
+        .image-container img {
+            width: 45%;
+            max-width: 500px;
+            height: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .image-container img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        footer {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #666;
         }
     </style>
 </head>
@@ -44,46 +82,60 @@
         <tbody>
             <tr>
                 <td>Water Source</td>
-                <td>lodge</td>
+                <td>Lodge</td>
                 <td>10</td>
             </tr>
             <tr>
-                <td>lodge</td>
-                <td>hospitals</td>
+                <td>Lodge</td>
+                <td>Hospitals</td>
                 <td>3</td>
             </tr>
             <tr>
-                <td>lodge</td>
-                <td>parks</td>
+                <td>Lodge</td>
+                <td>Parks</td>
                 <td>2</td>
             </tr>
             <tr>
-                <td>parks</td>
-                <td>school</td>
+                <td>Parks</td>
+                <td>School</td>
                 <td>20</td>
             </tr>
             <tr>
-                <td>school</td>
-                <td>fire station</td>
+                <td>School</td>
+                <td>Fire Station</td>
                 <td>60</td>
             </tr>
             <tr>
-                <td>hospital</td>
-                <td>fire station</td>
+                <td>Hospital</td>
+                <td>Fire Station</td>
                 <td>25</td>
             </tr>
         </tbody>
     </table>
 
-    <!-- Add your image -->
-    <div style="text-align: center;">
-        <img src="Untitled design (1).png" alt="GRAPH" width="500" height="500">
+    <!-- Images Side-by-Side -->
+    <div class="image-container">
+        <img src="Untitled design (1).png" alt="Graph 1">
+        <img src="Screenshot 2024-12-26 212914.png" alt="Graph 2">
     </div>
 
+    <!-- Dynamic Footer -->
+    <footer>
+        &copy; <span id="year"></span> Water Distribution Network. All rights reserved.
+    </footer>
 
-    
-    <div style="text-align: center;">
-        <img src="Screenshot 2024-12-26 212914.png" alt="GRAPH" width="500" height="500">
-    </div>
+    <script>
+        // Dynamic footer year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Highlight row on click
+        const rows = document.querySelectorAll('tbody tr');
+        rows.forEach(row => {
+            row.addEventListener('click', () => {
+                rows.forEach(r => r.style.backgroundColor = ''); // Reset all rows
+                row.style.backgroundColor = '#d1e7ff'; // Highlight selected row
+            });
+        });
+    </script>
 </body>
 </html>
