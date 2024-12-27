@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Waste management</title>
+    <title>Waste Management</title>
     <style>
         table {
             width: 60%;
@@ -30,11 +29,23 @@
             font-weight: bold;
             margin-bottom: 10px;
         }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px; /* Space between images */
+            margin: 20px auto;
+        }
+        .image-container img {
+            width: 500px;
+            height: 500px;
+            object-fit: cover; /* Adjust image resizing behavior */
+        }
     </style>
 </head>
 <body>
     <table>
-        <caption>Waste management</caption>
+        <caption>Waste Management</caption>
         <thead>
             <tr>
                 <th>Nodes (Locations)</th>
@@ -65,7 +76,7 @@
             </tr>
             <tr>
                 <td>pub</td>
-                <td>waste management </td>
+                <td>waste management</td>
                 <td>10</td>
             </tr>
             <tr>
@@ -78,42 +89,23 @@
                 <td>park</td>
                 <td>3</td>
             </tr>
-            
-           <tr>
+            <tr>
                 <td>park</td>
                 <td>regional centre</td>
                 <td>4</td>
-            </tr> 
-            
-              <tr>
+            </tr>
+            <tr>
                 <td>park</td>
                 <td>waste management</td>
                 <td>8</td>
-            </tr> 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+            </tr>
         </tbody>
     </table>
 
-    <!-- Add your image -->
-    <div style="text-align: center;">
-        <img src="Screenshot%202024-12-27%20091315.png" alt="GRAPH" width="500" height="500">
+    <!-- Images side by side -->
+    <div class="image-container">
+        <img src="Screenshot%202024-12-27%20091315.png" alt="GRAPH 1">
+        <img src="C:/Users/PRAMOD/OneDrive/Pictures/Screenshots/Untitled design (2).png" alt="GRAPH 2">
     </div>
-
-    
-
- <div style="text-align: center;">
-        <img src="C:\Users\PRAMOD\OneDrive\Pictures\Screenshots\Untitled design (2).png" alt="GRAPH" width="500" height="500">
-    </div>
-
-    
 </body>
 </html>
