@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .search-container {
+            margin: 20px auto;
+            width: 300px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 15px;
+            font-size: 18px;
+        }
+
+        .success {
+            color: #28a745;
+        }
+
+        .error {
+            color: #dc3545;
+        }
+
+        .suggestions {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .suggestions span {
+            color: #007BFF;
+            cursor: pointer;
+        }
+
+        .suggestions span:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Place Search</h1>
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Enter a place..." oninput="showSuggestions()">
+        <button onclick="searchPlace()">Search</button>
+        <div class="result" id="result"></div>
+        <div class="suggestions" id="suggestions"></div>
+    </div>
+
+    <script>
+        // Predefined list of places
+        const places = [
+            "Bus Stand",
+            "Hospital",
+            "Park",
+            "School",
+            "Museum",
+            "Bar Restaurant",
+            "Heritage Center",
+            "Tech Park"
+        ];
+
+        // Function to search for a place
+        function searchPlace() {
+            const input = document.getElementById("searchInput").value.trim().toLowerCase();
+            const resultDiv = document.getElementById("result");
+
+            const matchedPlace = places.find(place => place.toLowerCase() === input);
+
+            if (matchedPlace) {
+                resultDiv.innerHTML = `<span class="success">Success: '${matchedPlace}' found!</span>`;
+            } else {
+                resultDiv.innerHTML = `<span class="error">Error: '${input}' not found!</span>`;
+            }
+        }
+
+        // Function to show suggestions
+        function showSuggestions() {
+            const input = document.getElementById("searchInput").value.trim().toLowerCase();
+            const suggestionsDiv = document.getElementById("suggestions");
+
+            if (input.length === 0) {
+                suggestionsDiv.innerHTML = "";
+                return;
+            }
+
+            const suggestions = places.filter(place => place.toLowerCase().includes(input));
+
+            if (suggestions.length > 0) {
+                suggestionsDiv.innerHTML = `Did you mean: ${suggestions.map(s => `<span onclick=\"setInput('${s}')\">${s}</span>`).join(", ")}`;
+            } else {
+                suggestionsDiv.innerHTML = "No suggestions available.";
+            }
+        }
+
+        // Function to set input field from suggestion
+        function setInput(place) {
+            document.getElementById("searchInput").value = place;
+            document.getElementById("suggestions").innerHTML = "";
+        }
+    </script>
+</body>
+</html>
