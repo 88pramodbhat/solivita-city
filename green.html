@@ -1,1 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graph Representation of Locations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .graph-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+        }
+        .graph-node {
+            margin: 20px;
+            padding: 10px;
+            background-color: #f2f2f2;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .graph-node span {
+            display: block;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+        .edges {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Graph of Connected Locations</h1>
+
+    <div class="graph-container">
+        <div class="graph-node" id="park">
+            Park
+            <span>Connected to: Apartment, Tourist Centre</span>
+        </div>
+        <div class="graph-node" id="apartment">
+            Apartment
+            <span>Connected to: Heritage Centre</span>
+        </div>
+        <div class="graph-node" id="tourist-centre">
+            Tourist Centre
+            <span>Connected to: Farming and Agriculture</span>
+        </div>
+        <div class="graph-node" id="heritage-centre">
+            Heritage Centre
+            <span>Connected to: Tech Park</span>
+        </div>
+        <div class="graph-node" id="farming">
+            Farming and Agriculture
+        </div>
+        <div class="graph-node" id="tech-park">
+            Tech Park
+        </div>
+    </div>
+
+    <h2>Breadth-First Search (BFS) Traversal Starting from Park</h2>
+    <div class="edges">
+        <p><strong>Edges:</strong><br>
+            Park → Apartment<br>
+            Park → Tourist Centre<br>
+            Apartment → Heritage Centre<br>
+            Tourist Centre → Farming and Agriculture<br>
+            Heritage Centre → Tech Park
+        </p>
+    </div>
+
+    <h3>BFS Traversal Result:</h3>
+    <pre id="bfs-result"></pre>
+
+    <script>
+        // Representation of the graph using an adjacency list
+        const graph = {
+            "Park": ["Apartment", "Tourist Centre"],
+            "Apartment": ["Heritage Centre"],
+            "Tourist Centre": ["Farming and Agriculture"],
+            "Heritage Centre": ["Tech Park"],
+            "Farming and Agriculture": [],
+            "Tech Park": []
+        };
+
+        // BFS Algorithm
+        function bfs(start) {
+            const visited = new Set();
+            const queue = [start];
+            const result = [];
+
+            visited.add(start);
+
+            while (queue.length > 0) {
+                const node = queue.shift();
+                result.push(node);
+
+                for (const neighbor of graph[node]) {
+                    if (!visited.has(neighbor)) {
+                        visited.add(neighbor);
+                        queue.push(neighbor);
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        // Start BFS from 'Park'
+        const bfsResult = bfs("Park");
+        document.getElementById("bfs-result").textContent = bfsResult.join(" → ");
+    </script>
+
+<img src="Untitled design (3).png" alt="Graph Image" width="500" height="300">
+
+
+  
+</body>
+</html>
 
