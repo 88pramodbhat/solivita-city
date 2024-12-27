@@ -81,23 +81,33 @@
         .suggestions span:hover {
             text-decoration: underline;
         }
+
+        /* Add styling for the image */
+        .image-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .image-container img {
+            width: 300px; /* You can adjust the width as needed */
+            height: auto;
+            border-radius: 8px;
+        }
     </style>
 </head>
 <body>
 
-    <h1>why Boyer-Moore Algorithm?</h1>
-    <p>Efficient Place Matching: It helps search efficiently for place names that match or contain parts of the input text. So, as a user types, it quickly finds relevant places in a large dataset.
-Avoiding Full List Searches: Unlike linear searches, Boyer-Moore doesn't check every character of the dataset</p>
+    <!-- Add Image -->
+    <div class="image-container">
+        <img src="Untitled design.png" alt="Untitled design">
+    </div>
 
+    <h1>Why Boyer-Moore?</h1>
+    <p>Efficient Place Matching: It helps search efficiently for place names that match or contain parts of the input text. So, as a user types, it quickly finds relevant places in a large dataset.</p>
+    <p>Avoiding Full List Searches: Unlike linear searches, Boyer-Moore doesn't check every character of the dataset.</p>
 
-<p><strong>The city has a bus stand for easy travel, a hospital for medical care, a park to relax, a school for learning, a museum to explore history, a bar restaurant to enjoy food and drinks, a heritage center to celebrate culture, and a tech park for jobs and technology.</strong></p>
+    <p><strong>The city has a bus stand for easy travel, a hospital for medical care, a park to relax, a school for learning, a museum to explore history, a bar restaurant to enjoy food and drinks, a heritage center to celebrate culture, and a tech park for jobs and technology.</strong></p>
 
-
-
-
-
-
-    
     <h1>Place Search</h1>
     <div class="search-container">
         <input type="text" id="searchInput" placeholder="Enter a place..." oninput="showSuggestions()">
