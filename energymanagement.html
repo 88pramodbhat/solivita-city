@@ -36,7 +36,21 @@
         #dfs-result {
             margin-top: 20px;
             font-size: 18px;
-            color: #333;
+            
+        .image-container {
+            display: flex;
+            justify-content: center; /* Align images horizontally at the center */
+            align-items: center;    /* Align images vertically at the center */
+            height: 700px; 
+            width:700px
+            /* Full viewport height */
+        }color: #333;
+
+
+
+
+
+            
         }
     </style>
 </head>
@@ -97,6 +111,11 @@
         const dfsResult = dfs(startNode).join(" → ");
         document.getElementById("dfs-result").textContent = `DFS Traversal: ${dfsResult}`;
     </script>
+
+ <img src="Screenshot 2024-12-27 233128.png" alt="Centered Image">
+
+
+    
 </body>
 </html>
 
