@@ -1,152 +1,173 @@
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background: lightblue; /* Background color updated */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        height: 300vh;
-    }
-    .heading-container {
-        text-align: center;
-        background: #ffffff;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        width: 80%;
-        max-width: 600px;
-        margin-bottom: 20px;
-    }
-    h2 {
-        margin: 20px 0;
-        color: black; /* Headings color updated */
-        font-size: 1.8rem;
-        position: relative;
-        padding-bottom: 10px;
-    }
-    h2::after {
-        content: "";
-        display: block;
-        width: 50px;
-        height: 3px;
-        background: #007BFF;
-        margin: 10px auto 0;
-    }
-    .container {
-        max-width: 800px;
-        margin: 20px auto;
-        background: #fff;
-        padding: 20px;
-        border-radius: 5px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    p {
-        margin-bottom: 15px;
-    }
-    a {
-        display: inline-block;
-        padding: 12px 24px;
-        background-color: #007BFF; /* Button background color */
-        color: white; /* Text color */
-        text-decoration: none;
-        border-radius: 8px; /* Rounded corners */
-        font-weight: bold;
-        text-align: center;
-        margin-top: 10px;
-        transition: background-color 0.3s ease; /* Smooth transition on hover */
-    }
-    a:hover {
-        background-color: #0056b3; /* Darker blue on hover */
-        text-decoration: none;
-    }
-    .algorithm {
-        margin-bottom: 30px;
-    }
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart City Solutions</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f0f8ff; /* Soft blue background */
+            color: #333; /* Text color */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
 
+        .heading-container {
+            text-align: center;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        h2 {
+            margin: 10px 0;
+            color: #007bff;
+            font-size: 2rem;
+            position: relative;
+        }
+
+        h2::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: #007bff;
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+
+        .section-container {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin: 10px 0;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .algorithm {
+            font-weight: bold;
+            color: #333;
+        }
+
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 10px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 <body>
     <div class="heading-container">
-        <h2>1).Information Technology and Smart City Solutions</h2>
+        <h2>1) Information Technology and Smart City Solutions</h2>
     </div>
     <div class="section-container">
         <section>
-            <h2>i).Prioritizing Tasks in IT Systems</h2>
+            <h2>i) Prioritizing Tasks in IT Systems</h2>
             <p>
                 <span class="algorithm">Algorithm:</span> Heap Sort<br>
                 <span class="algorithm">Use Case:</span> Prioritize tasks in a smart city IT management system.<br>
-                <a href="https://github.com/88pramodbhat/solivita-city/blob/main/Heapsort.cpp" target="_blank">Heapsort</a>
+                <a href="https://github.com/88pramodbhat/solivita-city/blob/main/Heapsort.cpp" target="_blank">View Heapsort Code</a>
             </p>
         </section>
         <section>
-            <h2>ii).Smart Traffic Management</h2>
+            <h2>ii) Smart Traffic Management</h2>
             <p>
                 <span class="algorithm">Algorithm:</span> Shortest Path Algorithms (Dijkstra’s Algorithm)<br>
                 <span class="algorithm">Use Case:</span> Optimize vehicle routing to minimize congestion and travel time.<br>
-                <a href="https://github.com/88pramodbhat/solivita-city/blob/main/dijk.cpp" target="_blank">Dijkstra Code</a>
+                <a href="https://github.com/88pramodbhat/solivita-city/blob/main/dijk.cpp" target="_blank">View Dijkstra Code</a>
             </p>
         </section>
         <section>
-            <h2>iii).Telecommunications Network Optimization</h2>
+            <h2>iii) Telecommunications Network Optimization</h2>
             <p>
                 <span class="algorithm">Algorithm:</span> Minimum Spanning Tree (Kruskal’s Algorithm)<br>
                 <span class="algorithm">Use Case:</span> Design cost-effective fiber-optic or wireless communication networks.<br>
-                <a href="https://github.com/88pramodbhat/solivita-city/blob/main/krushkal.cpp" target="_blank">Kruskal's Code</a>
+                <a href="https://github.com/88pramodbhat/solivita-city/blob/main/krushkal.cpp" target="_blank">View Kruskal's Code</a>
             </p>
         </section>
     </div>
 
     <div class="heading-container">
-        <h2>2).Healthcare and Wellness</h2>
+        <h2>2) Healthcare and Wellness</h2>
     </div>
     <div class="section-container">
         <section>
-            <h2>i).Infectious Disease Spread Simulation</h2>
+            <h2>i) Infectious Disease Spread Simulation</h2>
             <p>
                 <span class="algorithm">Algorithm:</span> Breadth-First Search (BFS)<br>
                 <span class="algorithm">Use Case:</span> Simulate the spread of diseases and identify areas at risk.<br>
-                <a href="https://github.com/88pramodbhat/solivita-city/blob/main/bfs.cpp" target="_blank">BFS</a>
+                <a href="https://github.com/88pramodbhat/solivita-city/blob/main/bfs.cpp" target="_blank">View BFS Code</a>
             </p>
         </section>
         <section>
-            <h2>ii).Emergency Response Optimization</h2>
+            <h2>ii) Emergency Response Optimization</h2>
             <p>
                 <span class="algorithm">Algorithm:</span> Shortest Path Algorithms (Dijkstra’s Algorithm)<br>
                 <span class="algorithm">Use Case:</span> Optimize ambulance routes to minimize response times.<br>
-                <a href="https://github.com/88pramodbhat/solivita-city/blob/main/dijk.cpp" target="_blank">Dijkstra Code</a>
+                <a href="https://github.com/88pramodbhat/solivita-city/blob/main/dijk.cpp" target="_blank">View Dijkstra Code</a>
             </p>
         </section>
         <section>
-            <h2>iii).Patient Prioritization</h2>
+            <h2>iii) Patient Prioritization</h2>
             <p>
                 <span class="algorithm">Algorithm:</span> Heap Sort<br>
                 <span class="algorithm">Use Case:</span> Rank patients by urgency based on health conditions.<br>
-                <a href="https://github.com/88pramodbhat/solivita-city/blob/main/Heapsort.cpp" target="_blank">Heap Sort</a>
+                <a href="https://github.com/88pramodbhat/solivita-city/blob/main/Heapsort.cpp" target="_blank">View Heap Sort Code</a>
             </p>
         </section>
     </div>
 
     <div class="heading-container">
-        <h2>3).Education and Research</h2>
+        <h2>3) Education and Research</h2>
     </div>
     <div class="section-container">
         <section>
-            <h2>i).Course and Resource Prioritization</h2>
+            <h2>i) Course and Resource Prioritization</h2>
             <p>
                 <span class="algorithm">Algorithm:</span> Quick Sort<br>
                 <span class="algorithm">Use Case:</span> Prioritize courses or learning materials based on popularity, relevance, or difficulty level.<br>
-                <a href="https://github.com/88pramodbhat/solivita-city/blob/main/quick.cpp" target="_blank">Quick Sort</a>
+                <a href="https://github.com/88pramodbhat/solivita-city/blob/main/quick.cpp" target="_blank">View Quick Sort Code</a>
             </p>
         </section>
         <section>
-            <h2>ii).Path Optimization in Campus Navigation</h2>
+            <h2>ii) Path Optimization in Campus Navigation</h2>
             <p>
                 <span class="algorithm">Algorithm:</span> Dijkstra’s Algorithm<br>
                 <span class="algorithm">Use Case:</span> Optimize student and faculty movement between classrooms, labs, and other facilities.<br>
-                <a href="https://github.com/88pramodbhat/solivita-city/blob/main/dijk.cpp" target="_blank">Dijkstra Code</a>
+                <a href="https://github.com/88pramodbhat/solivita-city/blob/main/dijk.cpp" target="_blank">View Dijkstra Code</a>
             </p>
         </section>
     </div>
