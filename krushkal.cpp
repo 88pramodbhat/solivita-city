@@ -1,114 +1,96 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
-class DisjointSet {
-    vector<int> rank, parent, size;
+class Kruskal {
 public:
-    DisjointSet(int n) {
-        rank.resize(n + 1, 0);
-        parent.resize(n + 1);
-        size.resize(n + 1);
-        for (int i = 0; i <= n; i++) {
-            parent[i] = i;
-            size[i] = 1;
+    struct Edge {
+        int u, v, w;
+    };
+
+    int n, m, count = 0;
+    vector<Edge> edges, ans;
+    int* arr;
+
+    Kruskal() {
+        cout << "Enter number of vertices: ";
+        cin >> n;
+        cout << "Enter number of edges in the graph:";
+        cin >> m;
+
+        edges.resize(m);
+        cout << "Enter values for u, v, w one by one:\n";
+        for (int i = 0; i < m; i++) {
+            cin >> edges[i].u >> edges[i].v >> edges[i].w;
+        }
+
+        mergeSort(edges);
+
+        arr = (int*)malloc(sizeof(int) * n);
+        for (int i = 0; i < n; i++) {
+            arr[i] = i;
         }
     }
 
-    int findUPar(int node) {
-        if (node == parent[node])
-            return node;
-        return parent[node] = findUPar(parent[node]);
-    }
-
-    void unionByRank(int u, int v) {
-        int ulp_u = findUPar(u);
-        int ulp_v = findUPar(v);
-        if (ulp_u == ulp_v) return;
-        if (rank[ulp_u] < rank[ulp_v]) {
-            parent[ulp_u] = ulp_v;
-        }
-        else if (rank[ulp_v] < rank[ulp_u]) {
-            parent[ulp_v] = ulp_u;
-        }
-        else {
-            parent[ulp_v] = ulp_u;
-            rank[ulp_u]++;
-        }
-    }
-
-    void unionBySize(int u, int v) {
-        int ulp_u = findUPar(u);
-        int ulp_v = findUPar(v);
-        if (ulp_u == ulp_v) return;
-        if (size[ulp_u] < size[ulp_v]) {
-            parent[ulp_u] = ulp_v;
-            size[ulp_v] += size[ulp_u];
-        }
-        else {
-            parent[ulp_v] = ulp_u;
-            size[ulp_u] += size[ulp_v];
-        }
-    }
-};
-class Solution
-{
-public:
-    //Function to find sum of weights of edges of the Minimum Spanning Tree.
-    int spanningTree(int V, vector<vector<int>> adj[])
-    {
-        // 1 - 2 wt = 5
-        /// 1 - > (2, 5)
-        // 2 -> (1, 5)
-
-        // 5, 1, 2
-        // 5, 2, 1
-        vector<pair<int, pair<int, int>>> edges;
-        for (int i = 0; i < V; i++) {
-            for (auto it : adj[i]) {
-                int adjNode = it[0];
-                int wt = it[1];
-                int node = i;
-
-                edges.push_back({wt, {node, adjNode}});
+    void merge(vector<Edge>& left, vector<Edge>& right, vector<Edge>& result) {
+        int i = 0, j = 0, k = 0, p = left.size(), q = right.size();
+        while (i < p && j < q) {
+            if (left[i].w <= right[j].w) {
+                result[k++] = left[i++];
+            } else {
+                result[k++] = right[j++];
             }
         }
-        DisjointSet ds(V);
-        sort(edges.begin(), edges.end());
-        int mstWt = 0;
-        for (auto it : edges) {
-            int wt = it.first;
-            int u = it.second.first;
-            int v = it.second.second;
+        while (i < p) result[k++] = left[i++];
+        while (j < q) result[k++] = right[j++];
+    }
 
-            if (ds.findUPar(u) != ds.findUPar(v)) {
-                mstWt += wt;
-                ds.unionBySize(u, v);
-            }
+    void mergeSort(vector<Edge>& edges) {
+        int n = edges.size();
+        if (n > 1) {
+            vector<Edge> left(edges.begin(), edges.begin() + n / 2);
+            vector<Edge> right(edges.begin() + n / 2, edges.end());
+            mergeSort(left);
+            mergeSort(right);
+            merge(left, right, edges);
         }
+    }
 
-        return mstWt;
+    void Union(int u, int v) {
+        int temp = arr[u];
+        for (int i = 0; i < n; i++) {
+            if (arr[i] == temp)
+                arr[i] = arr[v];
+        }
+    }
+
+    bool Find(int u, int v) {
+        if (arr[u] == arr[v])
+        return 1;
+        else
+            return 0;
+    }
+
+    void spanning_tree() {
+        int i = 0;
+        while (count< n - 1 && i < m) {
+            if (Find(edges[i].u, edges[i].v)==0) {
+                Union(edges[i].u, edges[i].v);
+                ans.push_back(edges[i]);
+                count++;
+            }
+            i++;
+        }
     }
 };
 
 int main() {
+    Kruskal k;
+    k.spanning_tree();
 
-    int V = 5;
-    vector<vector<int>> edges = {{0, 1, 2}, {0, 2, 1}, {1, 2, 1}, {2, 3, 2}, {3, 4, 1}, {4, 2, 2}};
-    vector<vector<int>> adj[V];
-    for (auto it : edges) {
-        vector<int> tmp(2);
-        tmp[0] = it[1];
-        tmp[1] = it[2];
-        adj[it[0]].push_back(tmp);
+    cout << "Edges in the Minimum Spanning Tree:\n";
+    for (size_t i = 0; i < k.ans.size(); i++) {
+    cout << k.ans[i].u << " " << k.ans[i].v << " " << k.ans[i].w << endl;
+}
 
-        tmp[0] = it[0];
-        tmp[1] = it[2];
-        adj[it[1]].push_back(tmp);
-    }
-
-    Solution obj;
-    int mstWt = obj.spanningTree(V, adj);
-    cout << "The sum of all the edge weights: " << mstWt << endl;
-    return 0;
+    return 0;
 }
