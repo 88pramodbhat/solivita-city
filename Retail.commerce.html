@@ -5,21 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Sorting</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
         table {
-            width: 80%;
+            width: 90%;
             margin: 20px auto;
             border-collapse: collapse;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
         }
         th, td {
             border: 1px solid #ddd;
-            padding: 8px;
+            padding: 10px;
             text-align: center;
         }
         th {
             background-color: #f4f4f4;
+            color: #333;
+            font-weight: bold;
         }
         h2 {
             text-align: center;
+            color: #444;
+            margin-top: 20px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+            font-size: 14px;
+        }
+        #year {
+            font-weight: bold;
         }
     </style>
 </head>
@@ -66,11 +90,15 @@
         <tr><td>Laptop</td><td>4.5</td><td>80000</td></tr>
     </tbody>
 </table>
-        <!-- Dynamic Footer -->
-    <footer>
-        &copy; <span id="year"></span>Retail and Commerce. All rights reserved.
-    </footer>
 
+<footer>
+    &copy; <span id="year"></span> Retail and Commerce. All rights reserved.
+</footer>
+
+<script>
+    // Set the current year in the footer dynamically
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
