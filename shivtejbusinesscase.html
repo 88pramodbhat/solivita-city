@@ -4,49 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Styled Headings and Algorithms</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background: #f5f5f5;
+            background: #f0f4f8;
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 180vh;
+            align-items: flex-start;
             flex-direction: column;
+            height: 100vh;
+            padding-top: 40px;
         }
         .heading-container {
-            text-align: center;
             background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 800px;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 80%;
-            max-width: 600px;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .heading-container:hover {
+            transform: translateY(-5px);
         }
         h2 {
-            margin: 20px 0;
+            font-size: 2rem;
             color: #333333;
-            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 15px;
             position: relative;
-            padding-bottom: 10px;
         }
         h2::after {
             content: "";
             display: block;
-            width: 50px;
-            height: 3px;
+            width: 60px;
+            height: 4px;
             background: #007BFF;
             margin: 10px auto 0;
         }
-        .use-case {
-            background-color: #fff;
-            padding: 20px;
-            margin: 10px 0;
+        button {
+            background-color: #007BFF;
+            color: white;
+            font-size: 1rem;
+            padding: 12px 24px;
+            border: none;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .use-case {
+            background-color: #fafafa;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .algorithm {
             font-weight: bold;
@@ -59,25 +77,38 @@
             color: #007BFF;
             text-decoration: none;
             font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .heading-container {
+                width: 95%;
+            }
+            h2 {
+                font-size: 1.6rem;
+            }
         }
     </style>
 </head>
 <body>
 
     <div class="heading-container">
-        <h2><a href="Retail.commerce.html"><button class="retail-button">Retail Commerce</button></a></h2>
+        <h2><button onclick="window.location.href='Retail.commerce.html'">Retail Commerce</button></h2>
         <div class="use-case">
             <h3>i) Delivery Route Optimization</h3>
             <p class="algorithm">Algorithm: Shortest Path Algorithm (Dijkstra’s Algorithm)</p>
             <p class="description">Use Case: Optimize delivery routes for e-commerce platforms to reduce delivery time and costs.</p>
-            <a href="https://github.com/88pramodbhat/solivita-city/blob/main/dijk.cpp">DJIKSTRA'S CODE</a>
+            <a href="https://github.com/88pramodbhat/solivita-city/blob/main/dijk.cpp" target="_blank">DJIKSTRA'S CODE</a>
         </div>
 
         <div class="use-case">
             <h3>ii) Product Sorting in E-Commerce</h3>
             <p class="algorithm">Algorithm: Merge Sort</p>
             <p class="description">Use Case: Rank products based on popularity, ratings, or price for an efficient browsing experience.</p>
-            <a href="https://github.com/88pramodbhat/solivita-city/blob/main/merge.cpp">MERGE SORT</a>
+            <a href="https://github.com/88pramodbhat/solivita-city/blob/main/merge.cpp" target="_blank">MERGE SORT</a>
         </div>
     </div>
 
@@ -87,15 +118,16 @@
             <h3>i) Supply Chain Optimization</h3>
             <p class="algorithm">Algorithm: Shortest Path Algorithm (Dijkstra’s Algorithm)</p>
             <p class="description">Use Case: Optimize the transportation routes for raw materials and finished goods, reducing delivery times and costs.</p>
-            <a href="https://github.com/88pramodbhat/solivita-city/blob/main/dijk.cpp">DJIKSTRA'S CODE</a>
+            <a href="https://github.com/88pramodbhat/solivita-city/blob/main/dijk.cpp" target="_blank">DJIKSTRA'S CODE</a>
         </div>
 
         <div class="use-case">
             <h3>ii) Transportation of Materials</h3>
             <p class="algorithm">Algorithm: Minimum Spanning Tree (Kruskal’s Algorithm)</p>
             <p class="description">Use Case: Minimize infrastructure costs for connecting factories to suppliers and distribution centers, ensuring efficient material flow.</p>
-            <a href="https://github.com/88pramodbhat/solivita-city/blob/main/krushkal.cpp">KRUSKAL'S CODE</a>
+            <a href="https://github.com/88pramodbhat/solivita-city/blob/main/krushkal.cpp" target="_blank">KRUSKAL'S CODE</a>
         </div>
     </div>
+
 </body>
 </html>
