@@ -1,22 +1,60 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course Information</title>
+    <title>Course Prioritization with Quick Sort</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        h1 {
+            color: #444;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .sorted, .description {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #007acc;
+        }
+        button {
+            background-color: #007acc;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #005f99;
+        }
+        input {
+            padding: 8px;
+            width: calc(100% - 16px);
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
         table {
-            width: 70%;
+            width: 100%;
             margin: 20px auto;
             border-collapse: collapse;
-            font-size: 18px; /* Increase font size */
+            font-size: 16px;
         }
         th, td {
-            padding: 15px; /* Increase padding */
+            padding: 15px;
             text-align: left;
             border: 1px solid #ddd;
         }
@@ -29,104 +67,111 @@
     </style>
 </head>
 <body>
-     <h2>Why Quick Sort</h2>
+    <div class="container">
+        <h1>Why Quick Sort</h1>
+        <h3>The algorithm ensures that no course is skipped or left out while sorting the list quickly. Each course is compared based on urgency, so the final list reflects the correct priority order. No matter how many courses there are, the algorithm will sort them in a predictable and efficient way. Courses with the same urgency maintain their relative order. The code can be viewed here <a href="https://github.com/88pramodbhat/solivita-city/blob/main/quick.cpp">QUICK SORT</a>. The efficiency of code is O(nlogn) on average and O(n²) in the worst case. Easy to implement and modify for sorting by urgency.</h3>
 
-      <h3> Quick Sort prioritizes courses efficiently, even for large datasets. The sorting criteria (e.g., popularity, relevance) can be easily adjusted in the code.
-      It doesn’t use extra memory.By dividing courses into groups and recursively sorting them, it ensures accurate and fast prioritization.The code can be viewed here 
-     <a href="https://github.com/88pramodbhat/solivita-city/blob/main/quick.cpp">QUICK SORT</a> .The efficiency of code is O(logn) in Best case,O(n^2) in Worst case,O(logn) in Average case.
-      Popularity (How many students are enrolled or how many ratings the course has). Relevance (How aligned the course is with current industry trends or job market needs).
-     Difficulty (How difficult the course is, where lower difficulty means easier).</h3>
+        <h2>Course Prioritization</h2>
 
+        <h3>Original Course Data</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Course Name</th>
+                    <th>Description</th>
+                    <th>Urgency</th>
+                </tr>
+            </thead>
+            <tbody id="originalData">
+                <tr>
+                    <td>Introduction to Machine Learning</td>
+                    <td>500</td>
+                    <td>90</td>
+                </tr>
+                <tr>
+                    <td>Data Science for Beginners</td>
+                    <td>200</td>
+                    <td>70</td>
+                </tr>
+                <tr>
+                    <td>Deep Learning with TensorFlow</td>
+                    <td>800</td>
+                    <td>85</td>
+                </tr>
+                <tr>
+                    <td>Python Programming for Data Science</td>
+                    <td>150</td>
+                    <td>60</td>
+                </tr>
+                <tr>
+                    <td>Advanced AI Techniques</td>
+                    <td>1000</td>
+                    <td>95</td>
+                </tr>
+            </tbody>
+        </table>
 
-<h2>Course Information</h2>
+        <h3>Sorted Course Data by Urgency</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Course Name</th>
+                    <th>Description</th>
+                    <th>Urgency</th>
+                </tr>
+            </thead>
+            <tbody id="sortedData">
+            </tbody>
+        </table>
 
-<h3>Original Course Data</h3>
-<table>
-    <thead>
-        <tr>
-            <th>Course Name</th>
-            <th>Popularity</th>
-            <th>Relevance</th>
-            <th>Difficulty</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Introduction to Machine Learning</td>
-            <td>500</td>
-            <td>90</td>
-            <td>30</td>
-        </tr>
-        <tr>
-            <td>Data Science for Beginners</td>
-            <td>200</td>
-            <td>70</td>
-            <td>50</td>
-        </tr>
-        <tr>
-            <td>Deep Learning with TensorFlow</td>
-            <td>800</td>
-            <td>85</td>
-            <td>40</td>
-        </tr>
-        <tr>
-            <td>Python Programming for Data Science</td>
-            <td>150</td>
-            <td>60</td>
-            <td>70</td>
-        </tr>
-        <tr>
-            <td>Advanced AI Techniques</td>
-            <td>1000</td>
-            <td>95</td>
-            <td>60</td>
-        </tr>
-    </tbody>
-</table>
+        <button onclick="sortCourseData()">Sort Courses</button>
+    </div>
 
-<h3>Sorted Course Data by Popularity</h3>
-<table>
-    <thead>
-        <tr>
-            <th>Course Name</th>
-            <th>Popularity</th>
-            <th>Relevance</th>
-            <th>Difficulty</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Advanced AI Techniques</td>
-            <td>1000</td>
-            <td>95</td>
-            <td>60</td>
-        </tr>
-        <tr>
-            <td>Deep Learning with TensorFlow</td>
-            <td>800</td>
-            <td>85</td>
-            <td>40</td>
-        </tr>
-        <tr>
-            <td>Introduction to Machine Learning</td>
-            <td>500</td>
-            <td>90</td>
-            <td>30</td>
-        </tr>
-        <tr>
-            <td>Data Science for Beginners</td>
-            <td>200</td>
-            <td>70</td>
-            <td>50</td>
-        </tr>
-        <tr>
-            <td>Python Programming for Data Science</td>
-            <td>150</td>
-            <td>60</td>
-            <td>70</td>
-        </tr>
-    </tbody>
-</table>
+    <script>
+        const courses = [
+            { name: "Introduction to Machine Learning", description: 500, urgency: 90 },
+            { name: "Data Science for Beginners", description: 200, urgency: 70 },
+            { name: "Deep Learning with TensorFlow", description: 800, urgency: 85 },
+            { name: "Python Programming for Data Science", description: 150, urgency: 60 },
+            { name: "Advanced AI Techniques", description: 1000, urgency: 95 }
+        ];
 
+        // Quick sort function
+        function quickSort(arr, key) {
+            if (arr.length <= 1) {
+                return arr;
+            }
+
+            const pivot = arr[arr.length - 1];
+            const left = [];
+            const right = [];
+
+            for (let i = 0; i < arr.length - 1; i++) {
+                if (arr[i][key] > pivot[key]) {
+                    left.push(arr[i]);
+                } else {
+                    right.push(arr[i]);
+                }
+            }
+
+            return [...quickSort(left, key), pivot, ...quickSort(right, key)];
+        }
+
+        // Sort courses and display the result
+        function sortCourseData() {
+            const sortedCourses = quickSort(courses, 'urgency');
+            const sortedTableBody = document.getElementById('sortedData');
+            sortedTableBody.innerHTML = '';
+
+            sortedCourses.forEach(course => {
+                const row = `<tr>
+                    <td>${course.name}</td>
+                    <td>${course.description}</td>
+                    <td>${course.urgency}</td>
+                </tr>`;
+                sortedTableBody.innerHTML += row;
+            });
+        }
+    </script>
 </body>
 </html>
