@@ -3,20 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patient Prioritization</title>
+    <title>Patient Prioritization with Merge Sort</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        h1 {
+            color: #444;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .sorted, .description {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #007acc;
+        }
+        button {
+            background-color: #007acc;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #005f99;
+        }
+        input {
+            padding: 8px;
+            width: calc(100% - 16px);
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
         table {
-            width: 70%;
+            width: 100%;
             margin: 20px auto;
             border-collapse: collapse;
-            font-size: 18px; /* Larger font size */
+            font-size: 16px;
         }
         th, td {
-            padding: 15px; /* Larger padding */
+            padding: 15px;
             text-align: left;
             border: 1px solid #ddd;
         }
@@ -29,92 +66,121 @@
     </style>
 </head>
 <body>
+    <div class="container">
+        <h1>Why Merge Sort</h1>
+        <h3>The algorithm ensures that no patient is skipped or left out while sorting the list quickly. Each patient is compared based on urgency, so the final list reflects the correct priority order. No matter how many patients there are, the algorithm will sort them in a predictable and efficient way. Patients with the same urgency maintain their relative order. The code can be viewed here <a href="https://github.com/88pramodbhat/solivita-city/blob/main/merge.cpp">MERGE SORT</a>. The efficiency of code is O(nlogn) in all cases (Best, Average, Worst). Easy to implement and modify for sorting by urgency.</h3>
 
-  <h1> Why Merge Sort</h1>
-<h3>The algorithm ensures that no patient is skipped or left out while sorting the list quickly.Each patient is compared based on urgency, so the final list reflects the correct priority order. 
-No matter how many patients there are, the algorithm will sort them in a predictable and efficient way. Patients with the same urgency maintain their relative order.The code can be viewed here 
-   <a href="https://github.com/88pramodbhat/solivita-city/blob/main/merge.cpp">MERGE SORT</a>.The efficiency of code is O(nlogn) in all cases (Best,Average,Worst). 
-    Easy to implement and modify for sorting by urgency.</h3>
+        <h2>Patient Prioritization</h2>
 
-    
-<h2>Patient Prioritization</h2>
+        <h3>Original Patient Data</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Patient Name</th>
+                    <th>Condition</th>
+                    <th>Urgency</th>
+                </tr>
+            </thead>
+            <tbody id="originalData">
+                <tr>
+                    <td>Emily Davis</td>
+                    <td>Stroke</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>Michael Johnson</td>
+                    <td>Heart Attack</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>Christopher Brown</td>
+                    <td>Severe Injury</td>
+                    <td>13</td>
+                </tr>
+                <tr>
+                    <td>Sarah Wilson</td>
+                    <td>Flu</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>James Taylor</td>
+                    <td>Minor Injury</td>
+                    <td>2</td>
+                </tr>
+            </tbody>
+        </table>
 
-<h3>Original Patient Data</h3>
-<table>
-    <thead>
-        <tr>
-            <th>Patient Name</th>
-            <th>Condition</th>
-            <th>Urgency</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Emily Davis</td>
-            <td>Stroke</td>
-            <td>6</td>
-        </tr>
-        <tr>
-            <td>Michael Johnson</td>
-            <td>Heart Attack</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <td>Christopher Brown</td>
-            <td>Severe Injury</td>
-            <td>13</td>
-        </tr>
-        <tr>
-            <td>Sarah Wilson</td>
-            <td>Flu</td>
-            <td>7</td>
-        </tr>
-        <tr>
-            <td>James Taylor</td>
-            <td>Minor Injury</td>
-            <td>2</td>
-        </tr>
-    </tbody>
-</table>
+        <h3>Sorted Patient Data by Urgency</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Patient Name</th>
+                    <th>Condition</th>
+                    <th>Urgency</th>
+                </tr>
+            </thead>
+            <tbody id="sortedData">
+            </tbody>
+        </table>
 
-<h3>Sorted Patient Data by Urgency</h3>
-<table>
-    <thead>
-        <tr>
-            <th>Patient Name</th>
-            <th>Condition</th>
-            <th>Urgency</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-               <td>Christopher Brown</td>
-              <td>Severe Injury</td>
-              <td>13</td>
-        </tr>
-        <tr>
-             <td>Michael Johnson</td>
-            <td>Heart Attack</td>
-            <td>10</td>
-       
-        </tr>
-        <tr>
-            <td>Sarah Wilson</td>
-            <td>Flu</td>
-            <td>7</td>
-        </tr>
-        <tr>
-            <td>Emily Davis</td>
-            <td>Stroke</td>
-            <td>6</td>
-        </tr>
-        <tr>
-            <td>James Taylor</td>
-            <td>Minor Injury</td>
-            <td>2</td>
-        </tr>
-    </tbody>
-</table>
+        <button onclick="sortPatientData()">Sort Patients</button>
+    </div>
 
+    <script>
+        const patients = [
+            { name: "Emily Davis", condition: "Stroke", urgency: 6 },
+            { name: "Michael Johnson", condition: "Heart Attack", urgency: 10 },
+            { name: "Christopher Brown", condition: "Severe Injury", urgency: 13 },
+            { name: "Sarah Wilson", condition: "Flu", urgency: 7 },
+            { name: "James Taylor", condition: "Minor Injury", urgency: 2 }
+        ];
+
+        // Merge sort function
+        function mergeSort(arr, key) {
+            if (arr.length <= 1) {
+                return arr;
+            }
+
+            const mid = Math.floor(arr.length / 2);
+            const left = mergeSort(arr.slice(0, mid), key);
+            const right = mergeSort(arr.slice(mid), key);
+
+            return merge(left, right, key);
+        }
+
+        // Merge function
+        function merge(left, right, key) {
+            const sorted = [];
+            let i = 0, j = 0;
+
+            while (i < left.length && j < right.length) {
+                if (left[i][key] > right[j][key]) {
+                    sorted.push(left[i]);
+                    i++;
+                } else {
+                    sorted.push(right[j]);
+                    j++;
+                }
+            }
+
+            return [...sorted, ...left.slice(i), ...right.slice(j)];
+        }
+
+        // Sort patients and display the result
+        function sortPatientData() {
+            const sortedPatients = mergeSort(patients, 'urgency');
+            const sortedTableBody = document.getElementById('sortedData');
+            sortedTableBody.innerHTML = '';
+
+            sortedPatients.forEach(patient => {
+                const row = `<tr>
+                    <td>${patient.name}</td>
+                    <td>${patient.condition}</td>
+                    <td>${patient.urgency}</td>
+                </tr>`;
+                sortedTableBody.innerHTML += row;
+            });
+        }
+    </script>
 </body>
 </html>
